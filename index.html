@@ -9,8 +9,11 @@
 <meta property="og:description" content="台中大坑風景區新亮點！誠邀露營、美食、手作夥伴加入，共同打造自然體驗市集。" />
 <meta property="og:url" content="https://xyzhkfortw-bwlg.github.io/kadoli-market/" />
 <meta property="og:image" content="https://xyzhkfortw-bwlg.github.io/kadoli-market/IMG_5093.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xyzhkfortw-bwlg.github.io/kadoli-market/IMG_5093.jpg">
 
 <style>
 :root {
@@ -28,45 +31,33 @@
   --shadow:      0 4px 20px rgba(44,110,73,.12);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body { font-family: -apple-system,"Microsoft JhengHei","Noto Sans TC",sans-serif;
-       background: var(--cream); color: var(--text); min-height: 100vh; }
+body { font-family: -apple-system,"Microsoft JhengHei","Noto Sans TC",sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
 
 /* ── 海報容器 ── */
 .poster-container { width: 100%; max-width: 800px; margin: 0 auto; line-height: 0; }
 .poster-img { width: 100%; height: auto; display: block; }
 
-/* ── 進度條 (調整上方間距) ── */
-.progress-wrap { background: var(--green-dark); padding: 16px 20px 16px; } /* 增加了上方的 padding */
+/* ── 進度條 ── */
+.progress-wrap { background: var(--green-dark); padding: 16px 20px 16px; }
 .progress-bar { background:rgba(255,255,255,.2); border-radius:99px; height:6px; }
 .progress-fill { height:6px; border-radius:99px; background:var(--gold); transition:width .4s ease; }
 .step-labels { display:flex; justify-content:space-between; margin-top:6px; }
 .step-label { font-size:10px; color:#97C9AB; }
 .step-label.active { color:var(--gold); font-weight:600; }
 
-/* ── 公告與卡片元件 ── */
-.notice { background:linear-gradient(135deg,var(--green-mid),var(--green-dark)); margin:16px; border-radius:var(--radius); padding:14px 16px; display:flex; align-items:flex-start; gap:10px; }
-.notice-text { font-size:12px; color:#C8E6C9; line-height:1.7; }
+/* ── 元件樣式 ── */
 .card { background:var(--card-bg); margin:12px 16px; border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); }
 .card-title { font-size:15px; font-weight:700; color:var(--green-mid); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
 .card-title::before { content:''; display:inline-block; width:4px; height:18px; background:var(--gold); border-radius:2px; }
-
-/* ── 表單元件 ── */
 .step-page { display:none; }
 .step-page.active { display:block; }
 .form-group { margin-bottom:16px; }
 label { display:block; font-size:13px; font-weight:600; color:var(--text); margin-bottom:6px; }
 input, textarea, select { width:100%; padding:12px 14px; border:1.5px solid var(--border); border-radius:10px; font-size:14px; }
-.error-msg { font-size:11px; color:var(--danger); margin-top:4px; display:none; }
-.has-error input { border-color:var(--danger); }
-.has-error .error-msg { display:block; }
-
-/* ── 選項樣式 ── */
 .cat-grid, .size-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
 .cat-item, .size-item { border:2px solid var(--border); border-radius:12px; padding:12px; text-align:center; background:#fff; cursor:pointer; }
 .cat-item.selected, .size-item.selected { border-color:var(--green-mid); background:#EBF5EB; }
 .check-item { display:flex; align-items:center; gap:12px; padding:12px; border:1.5px solid var(--border); border-radius:10px; margin-bottom:10px; background:#fff; }
-
-/* ── 按鈕與載入 ── */
 .btn-row { padding:12px 16px 32px; display:flex; gap:10px; }
 .btn { flex:1; padding:15px; border-radius:12px; border:none; font-size:15px; font-weight:700; cursor:pointer; }
 .btn-main { background:var(--green-mid); color:#fff; }
@@ -95,27 +86,11 @@ input, textarea, select { width:100%; padding:12px 14px; border:1.5px solid var(
 <div class="step-page active" id="step1">
   <div class="card">
     <div class="card-title">基本聯絡資料</div>
-    <div class="form-group" id="fg-businessName">
-      <label>攤商名稱 <span style="color:red">*</span></label>
-      <input type="text" id="businessName">
-      <div class="error-msg">請輸入名稱</div>
-    </div>
-    <div class="form-group" id="fg-contactName">
-      <label>聯絡人 <span style="color:red">*</span></label>
-      <input type="text" id="contactName">
-    </div>
-    <div class="form-group" id="fg-phone">
-      <label>手機號碼 <span style="color:red">*</span></label>
-      <input type="tel" id="phone" maxlength="10">
-    </div>
-    <div class="form-group">
-      <label>LINE ID</label>
-      <input type="text" id="lineId">
-    </div>
-    <div class="form-group">
-      <label>電子信箱</label>
-      <input type="email" id="email">
-    </div>
+    <div class="form-group" id="fg-businessName"><label>攤商名稱 <span style="color:red">*</span></label><input type="text" id="businessName"></div>
+    <div class="form-group"><label>聯絡人 <span style="color:red">*</span></label><input type="text" id="contactName"></div>
+    <div class="form-group"><label>手機號碼 <span style="color:red">*</span></label><input type="tel" id="phone" maxlength="10"></div>
+    <div class="form-group"><label>LINE ID</label><input type="text" id="lineId"></div>
+    <div class="form-group"><label>電子信箱</label><input type="email" id="email"></div>
   </div>
 </div>
 
@@ -136,41 +111,21 @@ input, textarea, select { width:100%; padding:12px 14px; border:1.5px solid var(
   </div>
   <div class="card">
     <div class="card-title">攤位尺寸</div>
-    <div class="size-grid">
-      <div class="size-item" data-size="標準 3x3m">標準 3x3m</div>
-      <div class="size-item" data-size="餐車停車格">餐車格</div>
-    </div>
+    <div class="size-grid"><div class="size-item" data-size="標準 3x3m">標準 3x3m</div><div class="size-item" data-size="餐車停車格">餐車格</div></div>
   </div>
 </div>
 
 <div class="step-page" id="step3">
   <div class="card">
     <div class="card-title">需求說明</div>
-    <div class="form-group">
-      <label>預估日營業額 <span style="color:red">*</span></label>
-      <select id="estimatedRevenue">
-        <option value="">請選擇</option>
-        <option value="5000以下">5000以下</option>
-        <option value="5000-1萬">5000-1萬</option>
-        <option value="1萬以上">1萬以上</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>商品簡介 <span style="color:red">*</span></label>
-      <textarea id="productDesc"></textarea>
-    </div>
-    <div class="form-group">
-      <label>備註</label>
-      <textarea id="notes"></textarea>
-    </div>
+    <div class="form-group"><label>預估日營業額 <span style="color:red">*</span></label><select id="estimatedRevenue"><option value="">請選擇</option><option value="5000以下">5000以下</option><option value="5000-1萬">5000-1萬</option><option value="1萬以上">1萬以上</option></select></div>
+    <div class="form-group"><label>商品簡介 <span style="color:red">*</span></label><textarea id="productDesc"></textarea></div>
+    <div class="form-group"><label>備註</label><textarea id="notes"></textarea></div>
   </div>
 </div>
 
 <div class="step-page" id="step4">
-  <div class="card">
-    <div class="card-title">最終確認</div>
-    <div id="summaryContent"></div>
-  </div>
+  <div class="card"><div class="card-title">最終確認</div><div id="summaryContent"></div></div>
 </div>
 
 <div class="btn-row" id="btnRow">
@@ -221,12 +176,7 @@ function updateUI() {
 }
 function buildSummary() {
   const equip = [...document.querySelectorAll('input[name=equip]:checked')].map(e=>e.value).join(', ') || '無';
-  const data = [
-    ['店名', document.getElementById('businessName').value],
-    ['類別', selectedCat],
-    ['設備', equip],
-    ['備註', document.getElementById('notes').value || '無']
-  ];
+  const data = [['店名', document.getElementById('businessName').value],['類別', selectedCat],['設備', equip]];
   document.getElementById('summaryContent').innerHTML = data.map(r => `<div class="summary-row"><span>${r[0]}</span><b>${r[1]}</b></div>`).join('');
 }
 async function submitForm() {
